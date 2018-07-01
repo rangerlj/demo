@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="mysql.properties" />
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<!-- 配置统一别名 , -->
+	<typeAliases>
+		<!-- <typeAlias type="com.whcs.entity.Emp" alias="emp"></typeAlias> -->
+		<package name="com.whcs.entity" />
+	</typeAliases>
+	<!-- mybatis运行环境的配置 -->
+	<environments default="dev">
+		<environment id="dev">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+				<property name="url" value="${url}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 加载映射文件 -->
+	<mappers>
+		<mapper resource="com/whcs/mapper/DeptMapper.xml" />
+	</mappers>
+
+
+
+
+</configuration>

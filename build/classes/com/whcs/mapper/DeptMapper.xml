@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的是XXMapper.xml的路径 -->
+
+<mapper namespace="com.whcs.dao.DeptDao">
+	<resultMap type="dept" id="dept_result">
+		<result property="id" column="deptno" />
+		<result property="name" column="dname" />
+		<result property="loc" column="location" />
+	</resultMap>
+	<insert id="addDept" parameterType="Dept" keyProperty="deptno"
+		useGeneratedKeys="true">
+		insert into dept(dname,loc)
+		values(#{dname},#{loc})
+	</insert>
+</mapper>
